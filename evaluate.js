@@ -1,51 +1,55 @@
+const convert = require("./convert");
+
 function evaluate(postfix)
 {
-    var curr = 0;
-    var result = 0;
-    var next = 0;
-    var top = 0;
+    let curr = 0;
+    let result = 0;
+    let next = 0;
+    let top = 0;
+    let stack = [];
 
-    while (postfix != "")
-    {
-        curr = postfix.Front();
-        postfix.DeQueue();
+    for (let i = 0; i < postfix.length; i++) {
+        curr = postfix[i];
+        if (convert.isOperand(curr)) {
+            curr = parseFloat(curr);
+        }
         if (!isNaN(curr))
         {
-            stack.Push(curr);
+            stack.push(curr);
         }
         else
         {
-            top = stack.Top();
-            stack.Pop();
-            next = stack.Top();
-            stack.Pop();
+            top = stack[stack.length - 1];
+            stack.pop();
+            next = stack[stack.length - 1];
+            stack.pop();
         }
-
+        
         switch (curr)
         {
             case '+':
                 result = next + top;
-                stack.Push(result);
+                stack.push(result);
                 break;
             case '-':
                 result = next - top;
-                stack.Push(result);
+                stack.push(result);
                 break;
             case '*':
                 result = next * top;
-                stack.Push(result);
+                stack.push(result);
                 break;
             case '/':
                 result = next / top;
-                stack.Push(result);
+                stack.push(result);
                 break;
             case '%':
                 result = next % top;
-                stack.Push(result);
+                stack.push(result);
                 break;
-            case 'POW':
+            case '^':
                 result = Math.pow(next, top);
-                stack.Push(result);
+                stack.push(result);
                 break;
             default:
                 break;
