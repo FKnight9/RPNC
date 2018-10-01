@@ -50,7 +50,7 @@ function evaluate(postfix)
                 result = next % top;
                 stack.push(result);
                 break;
-            case '^':
+            case "POW":
                 result = Math.pow(next, top);
                 stack.push(result);
                 break;

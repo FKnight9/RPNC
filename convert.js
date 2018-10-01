@@ -13,7 +13,7 @@ function precedence(ch){
         case '/' :
         case '%' :
             return 2;
-        case '^' : 
+        case "POW" : 
             return 3;
         default :
             return 0;
@@ -60,6 +60,10 @@ function convertPostfix(infix){
                     stack.pop();
                 }
             } else {
+                if (ch == 'P' && infix[count +1] == 'O' && infix[count + 2] == 'W') {
+                    count = count + 2;
+                    ch = "POW"
+                }
                 while(stack.length !== 0){
                     if(precedence(stack[stack.length - 1]) >= precedence(ch)){
                         postfix.push(stack.pop());
