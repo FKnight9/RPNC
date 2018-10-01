@@ -8,6 +8,10 @@ function evaluate(postfix)
     let top = 0;
     let stack = [];
 
+    // The basis of some of the following code was taken from the RPN.pdf file
+    // that was in the modules section of Canvas. It was modified and added
+    // to in order to make it properly work.
+
     for (let i = 0; i < postfix.length; i++) {
         curr = postfix[i];
         if (convert.isOperand(curr)) {
