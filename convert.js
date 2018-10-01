@@ -1,7 +1,9 @@
 function isOperand(ch){
-    return (ch >= '0' && ch <= '9');
+    return (ch >= '0' && ch <= '9' || ch == '.');
 }
 
+// This idea for this function was taken from the website
+// https://www.oyewiki.com/tech/infix-to-postfixconversion-using-stack-in-javascript
 function precedence(ch){
     switch(ch){
         case '+' :

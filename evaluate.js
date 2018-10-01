@@ -40,6 +40,9 @@ function evaluate(postfix)
                 stack.push(result);
                 break;
             case '/':
+                if(top == 0) {
+                    return "You cannot divide by zero!";
+                }
                 result = next / top;
                 stack.push(result);
                 break;
