@@ -9,7 +9,7 @@ const rl = readline.createInterface({
   });
 
 console.log("Welcome to the Reverse Polish Notation Calculator!");
-console.log("This version supports multidigit numbers and all these operators: +, -, *, /, %, and ^ \n");
+console.log("This version supports multidigit numbers and all these operators: +, -, *, /, %, and POW \n");
 
 //This code is addapted from the npm package readline
 let waitForUserInput = function () {
